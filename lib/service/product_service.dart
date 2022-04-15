@@ -6,10 +6,14 @@ import 'package:http/http.dart' as http;
 class ProductService{
 
   static Future<ProductModel> getAllProducts() async{
-    var response=await http.get(Uri.parse('$baseUrl/products'));
+    var response= await http.get(Uri.parse('$baseUrl/products'));
     if(response.statusCode==200){
    var data=jsonDecode(response.body);
-   return ProductModel.fromJson(data);
+   List<ProductModel> productList = [];
+   data.forEach((e){
+     productList.add(ProductModel.fromJson(e));
+   });
+   return productList;
 
     }
     else{
