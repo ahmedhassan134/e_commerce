@@ -1,5 +1,8 @@
+
+
 import 'package:ecommerce/service/responsive.dart';
 import 'package:ecommerce/utils/constants.dart';
+import 'package:ecommerce/view/screens/cart_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../../widgets/cart_item.dart';
@@ -7,8 +10,16 @@ import '../../widgets/cart_item.dart';
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
+
   @override
+
   Widget build(BuildContext context) {
+    // @override
+    // void initState() {
+    //   Provider.of<productProvider>(context).getProducts();
+    //   ProductService.getAllProducts();
+    //
+    // }
     SizeConfig().init(context);
     return SafeArea(
       child: Scaffold(
@@ -17,7 +28,9 @@ class HomeScreen extends StatelessWidget {
           title:  const Text('Home Screen'),
           actions: [
             IconButton(
-                onPressed: null, icon: ClipRRect(
+                onPressed: (){
+                  Navigator.pushNamed(context, CartScreen.id);
+                }, icon: ClipRRect(
               borderRadius: BorderRadius.circular(16),
               
             
@@ -95,10 +108,14 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
             ),
-            const CartItem(),
+
+
+            const CartItem()
           ],
         ),
+
       ),
+
     );
   }
 }

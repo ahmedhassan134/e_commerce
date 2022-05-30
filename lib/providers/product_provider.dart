@@ -1,35 +1,32 @@
-
-import 'package:ecommerce/models/product_model.dart';
-import 'package:ecommerce/service/product_service.dart';
 import 'package:flutter/cupertino.dart';
 
-class productProvider with ChangeNotifier{
-  List<ProductModel> productList=[];
-  bool isLoading=true;
+import '../models/product_model.dart';
 
+class ProductProvider with ChangeNotifier {
+  List<ProductModel> productList = <ProductModel>[];
+  List<ProductModel> favoriteList = <ProductModel>[];
 
-  void getProducts()async {
-    var products=await ProductService.getAllProducts();
-try{
-  isLoading=true;
-  // for(int i=0;i<productList.length;i++){
-  //   productList.add(products);
+  // void managmentFavourite(int productId) {
+  //   var existingIndex =
+  //       favoriteList.indexWhere((element) => element.id == productId);
+  //   print(existingIndex);
+  //   if (existingIndex >= 0) {
+  //     favoriteList.removeAt(existingIndex);
+  //   } else {
+  //     favoriteList.where(
+  //       (element) {
+  //
+  //        return favoriteList.add(favoriteList.contains(element)););
+  //       },
+  //     );
+  //     print('added');
+  //   }
+
+  //   notifyListeners();
+  //   print('success');
   // }
-  if(productList.isNotEmpty){
-    productList.add(products);
+
+  bool isFavourite(int productId) {
+    return favoriteList.any((element) => element.id == productId);
   }
-
-}
-finally{
-  isLoading=false;
-  notifyListeners();
-
-}
-
-
-
-
-
-  }
-
 }

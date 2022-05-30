@@ -10,6 +10,7 @@ import 'bottom_navigator_screens/setting_screen.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
+  static String id='mainscreene';
 
   @override
   State<MainScreen> createState() => _MainScreenState();
