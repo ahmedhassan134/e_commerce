@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import '../../../utils/constants.dart';
 import '../../widgets/auth_widget/auth_Text_form_field.dart';
 class ForgetPassword extends StatelessWidget {
-static String id='forget';
+static const String id='forget';
 TextEditingController emailController = TextEditingController();
 
   ForgetPassword({Key? key}) : super(key: key);

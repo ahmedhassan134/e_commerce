@@ -1,5 +1,6 @@
 
 
+import 'package:ecommerce/home_page.dart';
 import 'package:ecommerce/providers/auth_provider.dart';
 import 'package:ecommerce/providers/cart_provider.dart';
 import 'package:ecommerce/providers/product_provider.dart';
@@ -9,6 +10,7 @@ import 'package:ecommerce/view/screens/auth_screens/forget_password.dart';
 import 'package:ecommerce/view/screens/bottom_navigator_screens/home_screen.dart';
 import 'package:ecommerce/view/screens/cart_screen.dart';
 import 'package:ecommerce/view/screens/main_screen.dart';
+
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -45,12 +47,13 @@ class MyApp extends StatelessWidget {
           )
         ),
 
-         home:  HomeScreen(),
+         home:  const HomeScreen(),
 
         routes: {
           CartScreen.id:(context)=>CartScreen(),
-          MainScreen.id:(context)=>MainScreen(),
-          ForgetPassword.id:(context)=>ForgetPassword()
+          MainScreen.id:(context)=>const MainScreen(),
+          ForgetPassword.id:(context)=>ForgetPassword(),
+          //ProductDetails.id:(context)=>ProductDetails()
         },
       ),
     );

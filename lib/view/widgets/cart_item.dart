@@ -1,6 +1,7 @@
 
 import 'package:ecommerce/providers/cart_provider.dart';
 import 'package:ecommerce/providers/product_provider.dart';
+import 'package:ecommerce/view/screens/product_details.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart ';
 import 'package:flutter/material.dart';
@@ -37,8 +38,16 @@ class CartItem extends StatelessWidget {
 
                 ), itemBuilder: (context,index){
                   return Padding(padding: const EdgeInsets.all(5),
-                    child:  Container(
-                    padding: const EdgeInsets.all(6),
+                    child:  InkWell(
+                      onTap: (){
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (BuildContext context) {
+                              return ProductDetails(productModel: products[index]);
+                            }));
+                      // ;
+                      },
+                      child: Container(
+                      padding: const EdgeInsets.all(6),
                   decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(16),
                   color: Colors.grey,
@@ -49,62 +58,63 @@ class CartItem extends StatelessWidget {
                   offset: const Offset(4, 8),
                   )
                   ]),
-                      child: Column(
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              IconButton(
-                                onPressed: (){
-                                  // Provider.of<ProductProvider>(context,listen: false).managmentFavourite(
-                                  //  products[index].id
-                                  // );
-                                },
-                                icon:  Provider.of<ProductProvider>(context).isFavourite(
-                                    products[index].id
-                                )? Icon(Icons.favorite_outline):Icon(Icons.favorite)
-                              ),
-
-                          IconButton(onPressed: (){
-                            Provider.of<CartProvider>(context,listen: false).addToProductCart( products[index]);
-                          }, icon: Icon(Icons.shopping_cart))
-                            ],
-                          ),
-                          Container(
-                            margin:const EdgeInsets.all(.2),
-                            width: double.infinity,
-                            height: SizeConfig.defaultSize! * 8,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(16)),
-                            child: Image.network(
-                              products[index].image,
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsetsDirectional.only(top: 7,start: 4,bottom: 2),
-                            child: Row(
-                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        child: Column(
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Expanded(child: Text( products[index].title,overflow: TextOverflow.ellipsis,),),
-                                Container(
-                                  alignment: Alignment.center,
-                                  padding: const EdgeInsets.symmetric(horizontal: 8),
-                                  width: SizeConfig.defaultSize! * 4,
-                                  height: SizeConfig.defaultSize! * 2,
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(20),
-                                      color: Colors.white),
-                                  child:Text(products[index].rating.rate.toString(),style: const TextStyle(color: Colors.red),)
-                                )
+                                IconButton(
+                                  onPressed: (){
+                                    // Provider.of<ProductProvider>(context,listen: false).managmentFavourite(
+                                    //  products[index].id
+                                    // );
+                                  },
+                                  icon:  Provider.of<ProductProvider>(context).isFavourite(
+                                      products[index].id
+                                  )? Icon(Icons.favorite_outline):Icon(Icons.favorite)
+                                ),
+
+                            IconButton(onPressed: (){
+                              Provider.of<CartProvider>(context,listen: false).addToProductCart( products[index]);
+                            }, icon: Icon(Icons.shopping_cart))
                               ],
                             ),
-                          )
-                        ],
-                      ),
+                            Container(
+                              margin:const EdgeInsets.all(.2),
+                              width: double.infinity,
+                              height: SizeConfig.defaultSize! * 12,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(16)),
+                              child: Image.network(
+                                products[index].image,
+                                fit: BoxFit.fill,
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsetsDirectional.only(top: 7,start: 4,bottom: 2),
+                              child: Row(
+                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Expanded(child: Text( products[index].title,overflow: TextOverflow.ellipsis,),),
+                                  Container(
+                                    alignment: Alignment.center,
+                                    padding: const EdgeInsets.symmetric(horizontal: 8),
+                                    width: SizeConfig.defaultSize! * 4,
+                                    height: SizeConfig.defaultSize! * 2,
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(20),
+                                        color: Colors.white),
+                                    child:Text(products[index].rating.rate.toString(),style: const TextStyle(color: Colors.red),)
+                                  )
+                                ],
+                              ),
+                            )
+                          ],
+                        ),
 
 
-                  )
+                  ),
+                    )
 
 
 

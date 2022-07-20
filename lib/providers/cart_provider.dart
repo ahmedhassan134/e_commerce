@@ -1,3 +1,5 @@
+
+
 import 'package:ecommerce/models/product_model.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -7,18 +9,22 @@ class CartProvider extends ChangeNotifier {
   void addToProductCart(ProductModel productModel) {
     if (productMaps.containsKey(productModel)) {
       productMaps[productModel] += 1;
-      print(productMaps.entries
-          .map((e) => e.key.price * e.value)
-          .toList()
-          .reduce((value, element) => value + element).toStringAsFixed(2));
-      print('pro one');
+      // print(productMaps.values);
+      // print(productMaps.entries
+      //     .map((e) => e.key.price * e.value)
+      //     .toList()
+      //     .reduce((value, element) => value + element)
+      //     .toStringAsFixed(2));
+      // print('pro one');
     } else {
       productMaps[productModel] = 1;
-      print(productMaps.entries
-          .map((e) => e.key.price * e.value)
-          .toList()
-          .reduce((value, element) => value + element).toStringAsFixed(2));
-      print('pro two');
+      // print(productMaps.values);
+      // print(productMaps.entries
+      //     .map((e) => e.key.price * e.value)
+      //     .toList()
+      //     .reduce((value, element) => value + element)
+      //     .toStringAsFixed(2));
+      // print('pro two');
     }
     notifyListeners();
   }
@@ -27,7 +33,8 @@ class CartProvider extends ChangeNotifier {
     if (productMaps.containsKey(productModel) &&
         productMaps[productModel] == 1) {
       productMaps.removeWhere((key, value) => key == productModel);
-    } else {
+    }
+    else {
       productMaps[productModel] -= 1;
     }
     notifyListeners();
@@ -49,5 +56,40 @@ class CartProvider extends ChangeNotifier {
   get total => productMaps.entries
       .map((e) => e.key.price * e.value)
       .toList()
-      .reduce((value, element) => value + element).toStringAsFixed(2);
+      .reduce((value, element) => value + element)
+      .toStringAsFixed(2);
+  // Map<dynamic, dynamic> mapList = {
+  //   'a': [
+  //     ProductModel(
+  //       id: 1,
+  //       title: "title",
+  //       price: 20,
+  //       description: "description",
+  //       category: categoryValues.map![jsonDecode("source")["category"]],
+  //       image: "image",
+  //       rating:Rating.fromJson(jsonDecode("source")["category"]),
+  //     ),
+  //     ProductModel(
+  //       id: 1,
+  //       title: "title",
+  //       price: 20,
+  //       description: "description",
+  //       category: categoryValues.map![jsonDecode("source")["category"]],
+  //       image: "image",
+  //       rating:Rating.fromJson(jsonDecode("source")["category"]),
+  //     ),
+  //   ],
+  //   'b':[
+  //     ProductModel(
+  //       id: 1,
+  //       title: "title",
+  //       price: 20,
+  //       description: "description",
+  //       category: categoryValues.map![jsonDecode("source")["category"]],
+  //       image: "image",
+  //       rating:Rating.fromJson(jsonDecode("source")["category"]),
+  //     ),
+  //
+  //   ]
+  // };
 }

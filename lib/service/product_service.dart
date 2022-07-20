@@ -17,7 +17,7 @@ class AllProductsService{
       for (var item in data) {
         producList.add(ProductModel.fromJson(item));
       }
-      print(producList.length);
+      // print(producList.length);
       return producList;
 
     }

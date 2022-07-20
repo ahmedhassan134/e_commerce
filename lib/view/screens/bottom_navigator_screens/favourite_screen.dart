@@ -1,5 +1,5 @@
 import 'package:ecommerce/providers/product_provider.dart';
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -11,7 +11,7 @@ class FavouriteScreen extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
           appBar: AppBar(
-            title: Text('favourite screen'),
+            title: const Text('favourite screen'),
           ),
           body: ListView.builder(
               itemCount:
@@ -38,7 +38,7 @@ class FavouriteScreen extends StatelessWidget {
                           width: 100,
                           fit: BoxFit.cover,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 20,
                         ),
                         Column(
@@ -49,13 +49,13 @@ class FavouriteScreen extends StatelessWidget {
                                   .favoriteList[index]
                                   .title
                                   .toString(),
-                              style: TextStyle(
+                              style: const TextStyle(
                                   fontSize: 22, fontWeight: FontWeight.bold),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 10,
                             ),
-                            Text(
+                            const Text(
                               'favourite',
                               style: TextStyle(
                                   fontSize: 22, fontWeight: FontWeight.bold),
@@ -64,7 +64,7 @@ class FavouriteScreen extends StatelessWidget {
                         ),
                         IconButton(
                             onPressed: () {},
-                            icon: Icon(Icons.favorite_outline))
+                            icon: const Icon(Icons.favorite_outline))
                       ],
                     ),
                   ),

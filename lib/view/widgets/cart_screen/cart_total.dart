@@ -11,19 +11,19 @@ class CartTotal extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
 
-      padding: EdgeInsets.all(12),
+      padding: const EdgeInsets.all(12),
       child: Row(
         children: [
           Column(
             children: [
-              Text('Total',style: TextStyle(fontSize: 30,color: Colors.grey),),
-              SizedBox(height: 10,),
-              Text( '\$${  Provider.of<CartProvider>(context).total.toString()}',style: TextStyle(fontSize: 20),)
+              const Text('Total',style: TextStyle(fontSize: 30,color: Colors.grey),),
+              const SizedBox(height: 10,),
+              Text( '\$${  Provider.of<CartProvider>(context).total.toString()}',style: const TextStyle(fontSize: 20),)
 
             ],
 
           ),
-          SizedBox(width: 20,),
+          const SizedBox(width: 20,),
           Expanded(child: ElevatedButton(
             onPressed: (){},
             style: ElevatedButton.styleFrom(

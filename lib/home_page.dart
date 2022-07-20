@@ -41,25 +41,25 @@ class HomePage extends StatelessWidget {
                     child: const Center(child: Text('Welcome ',style: TextStyle(color: Colors.white,fontSize: 30,fontWeight: FontWeight.bold),)),
                   ),
                   SizedBox(height: SizeConfig.defaultSize! * 5,),
-                  Container(
-                    width: SizeConfig.defaultSize! *20,
-                    height: SizeConfig.defaultSize! *6,
-
-                    decoration: BoxDecoration(
-                        color: mainColor,
-                        borderRadius: BorderRadius.circular(16)
-
-                    ),
-                    child:Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: const [
-                    Text('Asroo ',style: TextStyle(color:Colors.red,fontSize: 25,fontWeight: FontWeight.bold),),
-                        Text('Shop ',style: TextStyle(color: Colors.white,fontSize: 25,fontWeight: FontWeight.bold),),
-
-
-                      ],
-                    ) ),
-                  SizedBox(height: SizeConfig.defaultSize! * 5,),
+                  // Container(
+                  //   width: SizeConfig.defaultSize! *20,
+                  //   height: SizeConfig.defaultSize! *6,
+                  //
+                  //   decoration: BoxDecoration(
+                  //       color: mainColor,
+                  //       borderRadius: BorderRadius.circular(16)
+                  //
+                  //   ),
+                  //   child:Row(
+                  //     mainAxisAlignment: MainAxisAlignment.center,
+                  //     children: const [
+                  //   Text('Asroo ',style: TextStyle(color:Colors.red,fontSize: 25,fontWeight: FontWeight.bold),),
+                  //       Text('Shop ',style: TextStyle(color: Colors.white,fontSize: 25,fontWeight: FontWeight.bold),),
+                  //
+                  //
+                  //     ],
+                  //   ) ),
+                  //SizedBox(height: SizeConfig.defaultSize! * 5,),
                   ElevatedButton(  onPressed: () {
                     Navigator.push(
                       context,
@@ -82,8 +82,10 @@ class HomePage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       const Expanded(
+
                         child: Text
-                          ('Don\'t have any account? ',style: TextStyle(fontSize: 25,color: Colors.white),),
+                          ('Don\'t have any account? ',style: TextStyle(fontSize: 22,color: Colors.white),),
+                        flex: 4,
                       ),
                       Expanded(
                         child: TextButton( onPressed: () {
@@ -92,6 +94,7 @@ class HomePage extends StatelessWidget {
                                 return const SignUp();
                               }));
                         }, child:const Text('Sign up',style: TextStyle(fontSize: 25,fontWeight: FontWeight.w900,),)),
+                        flex: 2,
                       )
                     ],
                   )
